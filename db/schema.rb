@@ -14,10 +14,8 @@ ActiveRecord::Schema.define(version: 2018_07_16_050430) do
 
   create_table "links", force: :cascade do |t|
     t.string "original_url", null: false
-    t.string "short_url", limit: 7, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["short_url"], name: "index_links_on_short_url"
   end
 
 end
