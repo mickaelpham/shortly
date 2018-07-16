@@ -1,24 +1,26 @@
-# README
+# Link shortener
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple implementation of [TinyURL](https://tinyurl.com/)
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+```sh
+git clone https://github.com/mickaelpham/shortly
+cd shortly
+bin/setup
+bin/rails server
+```
 
-* System dependencies
+## Usage
 
-* Configuration
+```sh
+# Create a tiny URL
+curl --request POST \
+  --url http://localhost:3000/links \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data 'original_url=https%3A%2F%2Fwww.zendesk.com%2Fresources%2Fgartner-magic-quadrant-crm%2F&='
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Retrieve the URL
+curl --request GET \
+  --url http://localhost:3000/links/b
+```
